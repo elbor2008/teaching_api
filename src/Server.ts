@@ -19,7 +19,7 @@ const rootDir = Path.resolve(__dirname);
     `${rootDir}/services/**/**.js`,
     `${rootDir}/middlewares/**/**.js`
   ],
-  httpPort: 2000
+  httpPort: process.env.PORT || 2000
 })
 export class Server extends ServerLoader {
   async $onInit() {
