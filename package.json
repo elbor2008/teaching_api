@@ -1,5 +1,5 @@
 {
-  "name": "ts_ed",
+  "name": "teaching_api",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
@@ -9,7 +9,7 @@
     "pro:tsc": "tsc",
     "pro:start": "pm2 start ecosystem.config.js",
     "dev": "concurrently 'yarn run dev:*'",
-    "start": "concurrently 'yarn run pro:*'"
+    "start": "tsc && pm2 start ecosystem.config.js"
   },
   "devDependencies": {
     "@types/dotenv": "^6.1.1",
