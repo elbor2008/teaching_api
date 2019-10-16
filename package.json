@@ -7,9 +7,9 @@
     "dev:tsc:w": "tsc -w",
     "dev:start": "nodemon ./build/index.js",
     "pro:tsc": "tsc",
-    "pro:start": "pm2 start ecosystem.config.js",
+    "pro:start": "pm2-runtime start ecosystem.config.js --env production",
     "dev": "concurrently 'yarn run dev:*'",
-    "start": "tsc && pm2 start ecosystem.config.js"
+    "start": "tsc && pm2-runtime start ecosystem.config.js --env production"
   },
   "devDependencies": {
     "@types/dotenv": "^6.1.1",
