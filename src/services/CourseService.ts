@@ -1,6 +1,6 @@
 import { CourseModel, ICourse } from './../models/courseModel';
 import { Service, Scope, ProviderScope } from '@tsed/di';
-import { CourseVO } from '../vos/CourseVo';
+import { CourseVO } from '../vos/CourseVO';
 
 @Service()
 @Scope(ProviderScope.REQUEST)

@@ -10,7 +10,7 @@ import {
   Delete
 } from '@tsed/common';
 import { CourseService } from '../services/CourseService';
-import { CourseVO } from '../vos/CourseVo';
+import { CourseVO } from '../vos/CourseVO';
 import { BaseController } from './BaseController';
 import { BadRequest } from 'ts-httpexceptions';
 import { DateUtil } from '../utils/DateUtil';
