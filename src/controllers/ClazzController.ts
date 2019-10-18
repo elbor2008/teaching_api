@@ -9,6 +9,7 @@ import {
 } from '@tsed/common';
 import { ClazzService } from '../services/ClazzService';
 import { ClazzVO } from '../vos/ClazzVO';
+import { BadRequest } from 'ts-httpexceptions';
 
 @Controller('/clazzs')
 export class ClazzController {
@@ -49,6 +50,14 @@ export class ClazzController {
     @PathParams('id') id: string,
     @PathParams('studentId') studentId: string
   ) {
+    const clazz = await this.service.getById(id);
+    const courseCode = await this.service.getEnrolledCourseCode(
+      studentId,
+      clazz.dayOfWeek
+    );
+    if (courseCode) {
+      return new BadRequest('time conflict with course code ' + courseCode);
+    }
     return await this.service.addStudent(id, studentId);
   }
   @Delete('/:id/student/:studentId')

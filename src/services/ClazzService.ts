@@ -1,6 +1,7 @@
 import { Service, Scope, ProviderScope } from '@tsed/di';
 import { ClazzModel } from '../models/clazzModel';
 import { ClazzVO } from '../vos/ClazzVO';
+import { ICourse } from '../models/courseModel';
 
 @Service()
 @Scope(ProviderScope.REQUEST)
@@ -32,6 +33,21 @@ export class ClazzService {
       return clazzs.map(clazz => clazz.classroom);
     }
     return [];
+  }
+  async getEnrolledCourseCode(studentId: string, dayOfWeek: string) {
+    const clazz = await ClazzModel.findOne(
+      {
+        students: { $in: [studentId] },
+        dayOfWeek
+      },
+      'course'
+    )
+      .populate('course')
+      .exec();
+    if (clazz) {
+      return ((clazz.course as unknown) as ICourse).courseCode;
+    }
+    return null;
   }
   async getClassroomsAndDaysOfWeek(studentId: string, courseId: string) {
     const clazzs = await ClazzModel.find(
