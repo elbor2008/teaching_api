@@ -18,7 +18,7 @@
   },
   "dependencies": {
     "@tsed/common": "^5.28.0",
-    "@tsed/core": "^5.28.0",
+    "@tsed/core": "^5.65.7",
     "@tsed/di": "^5.28.0",
     "@types/bcrypt": "^3.0.0",
     "@types/compression": "^1.0.1",
